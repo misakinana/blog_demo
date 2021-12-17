@@ -34,7 +34,6 @@ def user_logout(request):
 def account_register(request):
     if request.method == 'POST':
         account_register_form = AccountRegisterForm(data=request.POST)
-        print(account_register_form)
         if account_register_form.is_valid():
             new_account = account_register_form.save(commit=False)
             new_account.set_password(account_register_form.cleaned_data['password'])
