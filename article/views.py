@@ -23,7 +23,7 @@ def article_detail(request, id):
 @login_required(login_url='/account/login/')
 def article_create(request):
     if request.method == 'POST':
-        article_post_form = ArticlePostForm(data = request.POST)
+        article_post_form = ArticlePostForm(data=request.POST)
         if article_post_form.is_valid():
             new_article = article_post_form.save(commit=False)
             new_article.author = User.objects.get(id=request.user.id)
